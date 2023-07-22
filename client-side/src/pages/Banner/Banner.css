@@ -1,0 +1,12 @@
+.banner-wrapper {
+  height: 89vh;
+  background-image: url("../../assets/images/banner/bannerThree.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.banner-child {
+  background-color: #140342;
+  opacity: 0.5;
+  height: 89vh;
+}
