@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 
 
@@ -98,6 +99,8 @@ const Registration = () => {
                                     </div>
                                 </div>
                             </form>
+                            
+                            <GoogleLogin />
                         </div>
                     </div>
                 </div>
