@@ -1,0 +1,74 @@
+[
+  {
+    "collegeName": "ABC College",
+    "collegeImage": "url_to_college_image_1",
+    "admissionDates": "Admission open from August 1st, 2023",
+    "events": "Annual Fest, Sports Meet, Alumni Reunion",
+    "research": "Cutting-edge research in Science and Technology",
+    "history": "Established in 1965, renowned for quality education",
+    "sports": "Football, Basketball, Badminton",
+    "ratings": 4.7,
+    "numberOfResearch": 120,
+    "facilities": "State-of-the-art labs, Library, Hostels"
+  },
+  {
+    "collegeName": "XYZ University",
+    "collegeImage": "url_to_college_image_2",
+    "admissionDates": "Admission open from July 15th, 2023",
+    "events": "Cultural Fest, Tech Expo, Sports Carnival",
+    "research": "Pioneering research in Medicine and Engineering",
+    "history": "Founded in 1950, top-ranked university",
+    "sports": "Cricket, Tennis, Swimming",
+    "ratings": 4.9,
+    "numberOfResearch": 200,
+    "facilities": "Modern classrooms, Gym, Research centers"
+  },
+  {
+    "collegeName": "PQR Institute",
+    "collegeImage": "url_to_college_image_3",
+    "admissionDates": "Admission open from September 1st, 2023",
+    "events": "Tech Symposium, Music Concert, Sports Championship",
+    "research": "Innovative research in Computer Science and Arts",
+    "history": "Established in 1980, fostering creativity",
+    "sports": "Volleyball, Chess, Table Tennis",
+    "ratings": 4.5,
+    "numberOfResearch": 80,
+    "facilities": "Art studios, Cafeteria, Auditorium"
+  },
+  {
+    "collegeName": "LMN University",
+    "collegeImage": "url_to_college_image_4",
+    "admissionDates": "Admission open from June 30th, 2023",
+    "events": "Literary Fest, Science Expo, Sports Extravaganza",
+    "research": "Groundbreaking research in Environmental Studies",
+    "history": "Established in 1995, promoting sustainable practices",
+    "sports": "Athletics, Karate, Yoga",
+    "ratings": 4.2,
+    "numberOfResearch": 150,
+    "facilities": "Research labs, Green campus, Student clubs"
+  },
+  {
+    "collegeName": "EFG College",
+    "collegeImage": "url_to_college_image_5",
+    "admissionDates": "Admission open from October 1st, 2023",
+    "events": "Dance Competition, Hackathon, Sports Day",
+    "research": "Leading research in Business and Economics",
+    "history": "Founded in 2000, shaping future leaders",
+    "sports": "Baseball, Golf, Archery",
+    "ratings": 4.8,
+    "numberOfResearch": 100,
+    "facilities": "Business incubator, Career services, Lecture halls"
+  },
+  {
+    "collegeName": "JKL Institute",
+    "collegeImage": "url_to_college_image_6",
+    "admissionDates": "Admission open from May 15th, 2023",
+    "events": "Art Exhibition, Science Fair, Athletics Meet",
+    "research": "Cutting-edge research in Psychology and Sociology",
+    "history": "Established in 1975, promoting social welfare",
+    "sports": "Hockey, Fencing, Martial Arts",
+    "ratings": 4.6,
+    "numberOfResearch": 90,
+    "facilities": "Psychology labs, Counseling center, Community outreach"
+  }
+]
