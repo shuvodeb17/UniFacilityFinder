@@ -8,8 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const Registration = () => {
-    const { signUp } = useContext(AuthContext)
-    console.log(signUp)
+    const { signUp, updateUserProfile } = useContext(AuthContext)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -19,6 +18,13 @@ const Registration = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser)
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('User Profile Info Updated')
+                    })
+                    .catch(error => {
+                        console.log(error.message)
+                    })
                 if (createdUser?.email) {
                     notify('Registration Successful', 'success');
                 }
@@ -55,14 +61,14 @@ const Registration = () => {
                                         <label for="" className="text-xs font-semibold px-1">Name</label>
                                         <div className="flex">
                                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                            <input {...register("name")} type="text" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="John Deo" />
+                                            <input {...register("name")} type="text" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="John Deo" required />
                                         </div>
                                     </div>
                                     <div className="w-1/2 px-3 mb-5">
                                         <label for="" className="text-xs font-semibold px-1">Photo URL</label>
                                         <div className="flex">
                                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                                            <input {...register("photoURL")} type="text" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Photo URL" />
+                                            <input {...register("photoURL")} type="url" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Photo URL" required />
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +77,7 @@ const Registration = () => {
                                         <label for="" className="text-xs font-semibold px-1">Email</label>
                                         <div className="flex">
                                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <input {...register("email")} type="email" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com" />
+                                            <input {...register("email")} type="email" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com" required />
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +86,7 @@ const Registration = () => {
                                         <label for="" className="text-xs font-semibold px-1">Password</label>
                                         <div className="flex">
                                             <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                                            <input {...register("password")} type="password" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************" />
+                                            <input {...register("password")} type="password" className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************" required />
                                         </div>
                                     </div>
                                 </div>

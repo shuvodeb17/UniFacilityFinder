@@ -16,23 +16,24 @@ const Navbar = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a>Home</a></li>
-                                <li><a>Colleges</a></li>
-                                <li><a>Admission</a></li>
-                                <li><a>My College</a></li>
+                                <li><Link to='/'>Home</Link></li>
+                                <li><Link>Colleges</Link></li>
+                                <li><Link>Admission</Link></li>
+                                <li><Link>My College</Link></li>
                             </ul>
                         </div>
-                        <a className="normal-case text-xl font-bold">UniFacilityFinder</a>
+                        <Link className="normal-case text-xl font-bold">UniFacilityFinder</Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
-                            <li><a>Home</a></li>
-                            <li><a>Colleges</a></li>
-                            <li><a>Admission</a></li>
-                            <li><a>My College</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link>Colleges</Link></li>
+                            <li><Link>Admission</Link></li>
+                            <li><Link>My College</Link></li>
                         </ul>
                     </div>
                     <div className="navbar-end">
+                        <p>{user?.email}</p>
                         <Link to='/registration' className="btn bg-[#4F26F9] text-white">Registration</Link>
                     </div>
                 </div>
