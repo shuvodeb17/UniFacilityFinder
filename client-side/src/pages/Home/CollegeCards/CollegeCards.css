@@ -1,13 +1,15 @@
-.college-cards{
-    overflow: hidden;
+.college-cards {
+  overflow: hidden;
 }
 .college-cards > img {
   border-radius: 6px 7px 0px 0px;
-  transition: all .5s;
+  transition: all 0.5s;
   overflow: hidden;
+  height: 225px;
+  width: 100%;
 }
-.college-cards:hover img{
-    transform: scale(1.1);
-    height: 175px;
-    width: 100%;
+.college-cards:hover img {
+  transform: scale(1.1);
+  height: 225px;
+  width: 100%;
 }
