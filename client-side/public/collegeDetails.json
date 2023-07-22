@@ -1,5 +1,6 @@
 [
   {
+    "_id": 1,
     "collegeName": "ABC College",
     "collegeImage": "    https://i.ibb.co/sjNwHxF/erika-fletcher-MZxqc6n9q-Cw-unsplash.jpg",
     "admissionDates": "Admission open from August 1st, 2023",
@@ -12,6 +13,7 @@
     "facilities": "State-of-the-art labs, Library, Hostels"
   },
   {
+    "_id": 2,
     "collegeName": "XYZ University",
     "collegeImage": "https://i.ibb.co/FD0kQbD/jane-last-k60-YOEj-B75k-unsplash.jpg",
     "admissionDates": "Admission open from July 15th, 2023",
@@ -24,6 +26,7 @@
     "facilities": "Modern classrooms, Gym, Research centers"
   },
   {
+    "_id": 3,
     "collegeName": "PQR Institute",
     "collegeImage": "https://i.ibb.co/T0kP6JT/pascal-bernardon-d-Lifk-Lvc5t8-unsplash.jpg",
     "admissionDates": "Admission open from September 1st, 2023",
@@ -36,6 +39,7 @@
     "facilities": "Art studios, Cafeteria, Auditorium"
   },
   {
+    "_id": 4,
     "collegeName": "LMN University",
     "collegeImage": "https://i.ibb.co/yNNjdy9/porter-raab-Ucr4-Yp-t364-unsplash.jpg",
     "admissionDates": "Admission open from June 30th, 2023",
@@ -48,6 +52,7 @@
     "facilities": "Research labs, Green campus, Student clubs"
   },
   {
+    "_id": 5,
     "collegeName": "EFG College",
     "collegeImage": "https://i.ibb.co/K2SKhrb/zhanhui-li-1iux-Ws-IZ6ko-unsplash.jpg",
     "admissionDates": "Admission open from October 1st, 2023",
@@ -60,6 +65,7 @@
     "facilities": "Business incubator, Career services, Lecture halls"
   },
   {
+    "_id": 6,
     "collegeName": "JKL Institute",
     "collegeImage": "https://i.ibb.co/F81gpM2/pascal-bernardon-jxqsyyb-T9-JY-unsplash.jpg",
     "admissionDates": "Admission open from May 15th, 2023",

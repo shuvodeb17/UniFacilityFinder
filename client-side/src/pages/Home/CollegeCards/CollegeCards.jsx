@@ -36,7 +36,7 @@ const CollegeCards = () => {
                 {
                     collegeDetails?.map(collegeDetail =>
                         <CollegeCard
-                            key={collegeDetail.admissionDates}
+                            key={collegeDetail._id}
                             collegeDetail={collegeDetail}
                         />)
                 }
