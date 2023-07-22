@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import loginImage from '../../assets/images/login/login.png'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext);
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+        signIn(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                if (loggedUser?.email) {
+                    notify('Login Successful', 'success');
+                }
+            })
+            .catch(error => {
+                console.log(error.message)
+                notify('Registration Failed: ' + error.message, 'error');
+            })
+    }
+
+    const notify = (message, type) => {
+        toast[type](message);
+    };
+
     return (
         <div>
             <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
@@ -16,13 +44,13 @@ const Login = () => {
                                 <h1 class="font-bold text-3xl text-gray-900">Login</h1>
                                 <p>Enter your information to Login</p>
                             </div>
-                            <div>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 <div class="flex -mx-3">
                                     <div class="w-full px-3 mb-5">
                                         <label for="" class="text-xs font-semibold px-1">Email</label>
                                         <div class="flex">
                                             <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                            <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com"/>
+                                            <input {...register("email")} type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com" />
                                         </div>
                                     </div>
                                 </div>
@@ -31,17 +59,18 @@ const Login = () => {
                                         <label for="" class="text-xs font-semibold px-1">Password</label>
                                         <div class="flex">
                                             <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                                            <input type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************"/>
+                                            <input {...register("password")} type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex -mx-3">
                                     <div class="w-full px-3 mb-5">
-                                        <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Login Now</button>
+                                        <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" onClick={notify}>Login Now</button>
+                                        <Toaster />
                                         <Link className='text-center text-blue-500 mx-auto' to='/registration'>Registration</Link>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

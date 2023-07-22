@@ -3,10 +3,11 @@ import registrationImage from '../../assets/images/registration/registration.png
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const Registration = () => {
-
     const { signUp } = useContext(AuthContext)
     console.log(signUp)
 
@@ -18,11 +19,21 @@ const Registration = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser)
+                if (createdUser?.email) {
+                    notify('Registration Successful', 'success');
+                }
             })
             .catch(error => {
                 console.log(error.message)
+                notify('Registration Failed: ' + error.message, 'error');
             })
     }
+
+    const notify = (message, type) => {
+        toast[type](message);
+    };
+
+
 
 
     return (
@@ -75,7 +86,8 @@ const Registration = () => {
                                 </div>
                                 <div className="flex -mx-3">
                                     <div className="w-full px-3 mb-5">
-                                        <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
+                                        <button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" onClick={notify}>REGISTER NOW</button>
+                                        <Toaster />
                                         <Link className='text-center text-blue-500 mx-auto' to='/login'>Login</Link>
                                     </div>
                                 </div>
