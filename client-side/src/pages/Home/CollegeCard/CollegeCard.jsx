@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CollegeCard = ({ collegeDetail }) => {
-    console.log(collegeDetail)
     const {_id, collegeName, collegeImage, admissionDates, events, research, history, sports } = collegeDetail;
 
     return (

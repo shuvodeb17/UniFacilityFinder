@@ -11,13 +11,12 @@ import './ImageGallery.css';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-import imageOne from '../../../assets/images/imageGallery/image1.jpg'
-import imageTwo from '../../../assets/images/imageGallery/image2.jpg'
-import imageThree from '../../../assets/images/imageGallery/image3.jpg'
-import imageFour from '../../../assets/images/imageGallery/image4.jpg'
-import imageFive from '../../../assets/images/imageGallery/image5.jpg'
-import imageSix from '../../../assets/images/imageGallery/image6.jpg'
-import imageSeven from '../../../assets/images/imageGallery/image1.jpg'
+import { default as imageOne, default as imageSeven } from '../../../assets/images/imageGallery/image1.jpg';
+import imageTwo from '../../../assets/images/imageGallery/image2.jpg';
+import imageThree from '../../../assets/images/imageGallery/image3.jpg';
+import imageFour from '../../../assets/images/imageGallery/image4.jpg';
+import imageFive from '../../../assets/images/imageGallery/image5.jpg';
+import imageSix from '../../../assets/images/imageGallery/image6.jpg';
 
 const ImageGallery = () => {
     return (

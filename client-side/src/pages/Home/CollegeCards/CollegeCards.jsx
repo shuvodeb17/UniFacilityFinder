@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import cardOne from '../../../assets/images/collegeCards/cardImage1.jpg'
-import Rating from 'react-rating';
-import { BiSolidStar } from 'react-icons/bi';
-import { BsStar } from 'react-icons/bs';
-import './CollegeCards.css';
 import CollegeCard from '../CollegeCard/CollegeCard';
+import './CollegeCards.css';
 
 {/* <div className='flex gap-3'>
     <p className='font-bold text-[#FF9801]'>4.7</p>
