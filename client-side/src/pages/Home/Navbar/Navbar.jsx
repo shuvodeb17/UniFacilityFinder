@@ -33,8 +33,13 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <p>{user?.email}</p>
-                        <Link to='/registration' className="btn bg-[#4F26F9] text-white">Registration</Link>
+                        <img style={{ width: "60px", borderRadius: '50%', border: '2px solid green' }} className='mr-5 cursor pointer' src={user?.photoURL} alt="" />
+                        {
+                            user ?
+                            <Link to='/registration' className="btn bg-[#4F26F9] text-white">Logout</Link>
+                            :
+                            <Link to='/registration' className="btn bg-[#4F26F9] text-white">Registration</Link>
+                        }
                     </div>
                 </div>
             </div>
