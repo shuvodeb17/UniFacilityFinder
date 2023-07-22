@@ -2,23 +2,13 @@ import React, { useEffect, useState } from 'react';
 import CollegeCard from '../CollegeCard/CollegeCard';
 import './CollegeCards.css';
 
-{/* <div className='flex gap-3'>
-    <p className='font-bold text-[#FF9801]'>4.7</p>
-    <Rating
-        placeholderRating={3.5}
-        emptySymbol={<BsStar className='text-[#FF9801]' />}
-        readonly
-        placeholderSymbol={<BiSolidStar className='text-[#FF9801]' />}
-        fullSymbol={<BiSolidStar className='text-[#FF9801]' />}
-    />
-</div> */}
 
 const CollegeCards = () => {
 
     const [collegeDetails, setCollegeDetails] = useState([]);
 
     useEffect(() => {
-        fetch('../../../../public//collegeDetails.json')
+        fetch('http://localhost:3001/college-details')
             .then(res => res.json())
             .then(data => setCollegeDetails(data))
     }, [])

@@ -19,8 +19,22 @@ const Registration = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser)
+
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
+                        const savedUser = { name: data?.name, email: data?.email, photo: data?.photoURL }
+                        fetch(`http://localhost:3001/all-users-post`, {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(savedUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                            })
+
                         console.log('User Profile Info Updated')
                     })
                     .catch(error => {

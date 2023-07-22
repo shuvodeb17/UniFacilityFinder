@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://UniFacilityFinder:Q5Kv9PAW8zrIO4Rv@cluster0.b0yctrm.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -28,7 +28,41 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
+        // await client.connect();
+        const usersCollection = client.db('UniFacilityFinder').collection('users');
+        const collegeCollection = client.db('UniFacilityFinder').collection('collegeDetails');
+
+
+        app.post('/all-users-post', async (req, res) => {
+            const data = req.body;
+            const query = { email: data.email }
+            const existingUser = await usersCollection.findOne(query)
+            if (existingUser) {
+                return res.send({ message: 'User already exits' })
+            }
+            const result = await usersCollection.insertOne(data)
+            res.send(result)
+        })
+
+        app.get('/all-users', async (req, res) => {
+            const result = await usersCollection.find({}).toArray()
+            res.send(result)
+        })
+
+        app.get('/college-details', async (req, res) => {
+            const result = await collegeCollection.find({}).toArray()
+            res.send(result)
+        })
+
+        app.get('/college-detail/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await collegeCollection.findOne(query)
+            res.send(result)
+        })
+
+
+
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("database is connected");
