@@ -24,7 +24,7 @@ const Navbar = () => {
                                 <li><Link to='/'>Home</Link></li>
                                 <li><Link>Colleges</Link></li>
                                 <li><Link to='/admission'>Admission</Link></li>
-                                <li><Link>My College</Link></li>
+                                <li><Link to='/my-college'>My College</Link></li>
                             </ul>
                         </div>
                         <Link className="normal-case text-xl font-bold">UniFacilityFinder</Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link>Colleges</Link></li>
                             <li><Link to='/admission'>Admission</Link></li>
-                            <li><Link>My College</Link></li>
+                            <li><Link to='/my-college'>My College</Link></li>
                         </ul>
                     </div>
                     <div className="navbar-end">

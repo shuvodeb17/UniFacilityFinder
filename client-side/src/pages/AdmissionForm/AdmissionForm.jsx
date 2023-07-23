@@ -12,7 +12,7 @@ const AdmissionForm = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        const insertData = { studentName: data.studentName, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth }
+        const insertData = { studentName: data.studentName, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth, feedback: '', reviews: '', photo: user?.photoURL }
         fetch('http://localhost:3001/admission-data', {
             method: 'POST',
             headers: {
