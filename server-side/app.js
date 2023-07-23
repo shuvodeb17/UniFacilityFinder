@@ -82,6 +82,21 @@ async function run() {
             res.send(result)
         })
 
+        app.patch('/profile-details-update/:id', async (req, res) => {
+            const data = req.body;
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) }
+            const updateDoc = {
+                $set: {
+                    studentName: data.studentName,
+                    studentEmail: data.studentEmail,
+                    admittedCollegeName: data.admittedCollegeName,
+                    address: data.address
+                }
+            }
+            const result = await admissionCollection.updateOne(filter, updateDoc)
+            res.send(result)
+        })
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
