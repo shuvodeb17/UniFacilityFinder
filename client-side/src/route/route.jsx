@@ -6,6 +6,7 @@ import CollegeDetails from "../pages/CollegeDetails/CollegeDetails";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import MyColleges from "../pages/MyColleges/MyColleges";
+import Profile from "../pages/Profile/Profile";
 import Registration from "../pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
             {
                 path: 'my-college',
                 element: <MyColleges />
+            },
+            {
+                path: 'profile',
+                element: <Profile />,
+                loader: ({ params }) => fetch(`http://localhost:3001/admission-all-data?studentEmail=${params._id}`)
+
             },
             {
                 path: 'registration',

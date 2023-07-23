@@ -38,7 +38,9 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        {user && <img style={{ width: "60px", borderRadius: '50%', border: '2px solid green' }} className='mr-5 cursor pointer' src={user?.photoURL} alt="" />}
+                        {user && <Link to='/profile'>
+                            <img style={{ width: "60px", borderRadius: '50%', border: '2px solid green' }} className='mr-5 cursor pointer' src={user?.photoURL} alt="" />
+                        </Link>}
                         {
                             user ?
                                 <Link onClick={logOutHandler} className="btn bg-[#ee671e] text-white">Logout</Link>
