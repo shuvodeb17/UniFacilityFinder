@@ -4,6 +4,7 @@ import SingleAdmission from './SingleAdmission';
 const Admission = () => {
 
     const [colleges, setColleges] = useState([]);
+    console.log(colleges)
     useEffect(() => {
         fetch('http://localhost:3001/college-details')
             .then(res => res.json())

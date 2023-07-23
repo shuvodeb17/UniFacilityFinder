@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from "react-hook-form"
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const AdmissionForm = () => {
@@ -21,7 +22,12 @@ const AdmissionForm = () => {
             body: JSON.stringify(insertData)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    toast.success('Admission successful')
+                }
+            })
     }
 
     return (
@@ -87,6 +93,7 @@ const AdmissionForm = () => {
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
                             <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Admission</button>
+                            <Toaster />
                         </div>
                     </div>
                 </form>
