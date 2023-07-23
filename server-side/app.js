@@ -31,6 +31,7 @@ async function run() {
         // await client.connect();
         const usersCollection = client.db('UniFacilityFinder').collection('users');
         const collegeCollection = client.db('UniFacilityFinder').collection('collegeDetails');
+        const admissionCollection = client.db('UniFacilityFinder').collection('admission');
 
 
         app.post('/all-users-post', async (req, res) => {
@@ -61,6 +62,25 @@ async function run() {
             res.send(result)
         })
 
+        // admission form
+        app.post('/admission-data', async (req, res) => {
+            const data = req.body;
+            /* const query = { email: data.email }
+            const exitingUser = await admissionCollection.findOne(query)
+            if (exitingUser) {
+                return res.send({ message: 'Already admitted' })
+            } */
+            const result = await admissionCollection.insertOne(data)
+            res.send(result)
+        })
+        app.get('/admission-all-data', async (req, res) => {
+            let query = {};
+            if (req.query?.studentEmail) {
+                query = { studentEmail: req.query.studentEmail }
+            }
+            const result = await admissionCollection.find(query).toArray();
+            res.send(result)
+        })
 
 
         // Send a ping to confirm a successful connection
