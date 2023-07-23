@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import loginImage from '../../assets/images/login/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,12 +8,14 @@ import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 
 const Login = () => {
-
-    const { signIn } = useContext(AuthContext);
+    const { signIn, resetPassword } = useContext(AuthContext);
+    // const emailRef = useRef();
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         signIn(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
@@ -21,6 +23,7 @@ const Login = () => {
                 if (loggedUser?.email) {
                     notify('Login Successful', 'success');
                 }
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message)
@@ -28,9 +31,27 @@ const Login = () => {
             })
     }
 
+    const resetHandlePassword = (e) => {
+        const email = emailRef?.current?.value;
+        if (!email) {
+            toast.error('Please provide you Email address to reset your password')
+            console.log('Please provide you Email address to reset your password')
+        }
+        resetPassword(email)
+            .then(() => {
+                // toast.success('Reset Email sent')
+                console.log('Reset email sent')
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     const notify = (message, type) => {
         toast[type](message);
     };
+
+
 
     return (
         <div>
@@ -68,12 +89,18 @@ const Login = () => {
                                     <div class="w-full px-3 mb-5">
                                         <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold" onClick={notify}>Login Now</button>
                                         <Toaster />
-                                        <Link className='text-center text-blue-500 mx-auto' to='/registration'>Registration</Link>
+                                        <div className='text-center'>
+                                            <p>New to this website Please <Link className=' text-blue-500 mx-auto' to='/registration'>Registration</Link></p>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
+                            <p className='text-center'>Forget Password ? Please <button className='text-green-500' onClick={resetHandlePassword}>Reset Password</button> </p>
+                            <Toaster />
 
-                            <GoogleLogin />
+                            <div className='text-center mx-auto mt-5' >
+                                <GoogleLogin />
+                            </div>
                         </div>
                     </div>
                 </div>

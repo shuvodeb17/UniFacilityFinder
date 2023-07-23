@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import registrationImage from '../../assets/images/registration/registration.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
@@ -10,6 +10,9 @@ import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 const Registration = () => {
     const { signUp, updateUserProfile } = useContext(AuthContext)
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -34,7 +37,7 @@ const Registration = () => {
                             .then(data => {
                                 console.log(data)
                             })
-
+                        navigate(from, { replace: true });
                         console.log('User Profile Info Updated')
                     })
                     .catch(error => {
@@ -113,7 +116,7 @@ const Registration = () => {
                                     </div>
                                 </div>
                             </form>
-                            
+
                             <GoogleLogin />
                         </div>
                     </div>
