@@ -8,12 +8,15 @@ import { AuthContext } from '../../providers/AuthProvider';
 const AdmissionForm = () => {
     const { user } = useContext(AuthContext);
     const collegeData = useLoaderData()
-    const { collegeName, collegeImage, events, research, history, sports, ratings, numberOfResearch, facilities } = collegeData;
+    const { collegeName, collegeImage, studentName, events, research, history, sports, ratings, numberOfResearch, facilities } = collegeData;
+    console.log(studentName)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
         const insertData = { studentName: data.studentName, address: data.address, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth, feedback: '', reviews: '', photo: user?.photoURL, collegeImage: collegeImage, events, research,history,sports,ratings,numberOfResearch,facilities }
+            console.log(studentName)
+
         fetch('https://server-side-steel-theta.vercel.app/admission-data', {
             method: 'POST',
             headers: {
@@ -40,8 +43,9 @@ const AdmissionForm = () => {
                         <div class="w-full px-3 ">
                             <label for="" class="text-xs font-semibold px-1">Name</label>
                             <div class="flex">
-                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                <input {...register("studentName")} value={user?.displayName} type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" />
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray
+                                -400 text-lg"></i></div>
+                                <input {...register("studentName")} value={user?.displayName || studentName} type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" />
                             </div>
                         </div>
                     </div>
