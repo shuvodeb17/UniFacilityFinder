@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import './Testimonial.css';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -28,7 +29,7 @@ const Testimonial = () => {
                 {
                     reviews?.map(review => <div>
                         <SwiperSlide>
-                            <div>
+                            <div className='h-screen'>
                                 <img style={{width:'70px'}} className='rounded-full mx-auto' src={review?.photo} alt="" />
                                 <h1>Name: {review?.studentName}</h1>
                                 <h1>Review: {review?.reviews}</h1>
