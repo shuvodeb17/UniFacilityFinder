@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import MyColleges from "../pages/MyColleges/MyColleges";
 import Profile from "../pages/Profile/Profile";
 import Registration from "../pages/Registration/Registration";
+import Review from "../pages/Review/Review";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
             {
                 path: 'my-college',
                 element: <MyColleges />
+            },
+            {
+                path: 'review/:id',
+                element: <Review />,
+                loader: ({params}) => fetch(`http://localhost:3001/review/${params.id}`)
             },
             {
                 path: 'profile',

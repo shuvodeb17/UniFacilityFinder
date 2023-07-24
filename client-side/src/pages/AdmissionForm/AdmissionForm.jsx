@@ -8,12 +8,13 @@ import toast, { Toaster } from 'react-hot-toast';
 const AdmissionForm = () => {
     const { user } = useContext(AuthContext);
     const collegeData = useLoaderData()
-    const { collegeName } = collegeData;
+    const { collegeName, collegeImage, events, research, history, sports, ratings, numberOfResearch, facilities } = collegeData;
+    console.log(collegeData)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        const insertData = { studentName: data.studentName, address: data.address, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth, feedback: '', reviews: '', photo: user?.photoURL }
+        const insertData = { studentName: data.studentName, address: data.address, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth, feedback: '', reviews: '', photo: user?.photoURL, collegeImage: collegeImage, events, research,history,sports,ratings,numberOfResearch,facilities }
         fetch('http://localhost:3001/admission-data', {
             method: 'POST',
             headers: {
