@@ -4,6 +4,7 @@ import Admission from "../pages/Admission/Admission";
 import AdmissionForm from "../pages/AdmissionForm/AdmissionForm";
 import CollegeDetails from "../pages/CollegeDetails/CollegeDetails";
 import Colleges from "../pages/Colleges/Colleges";
+import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import MyColleges from "../pages/MyColleges/MyColleges";
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login />
+            },
+            {
+                path: '*',
+                element: <Error />
             }
         ]
     }
