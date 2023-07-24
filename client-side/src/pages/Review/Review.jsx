@@ -35,7 +35,7 @@ const Review = () => {
     return (
         <section className='bg-[#151920] text-white h-[88vh]'>
             <div className='container mx-auto'>
-                <div className='bg-[#0E1317] p-11 rounded grid grid-cols-2 gap-11'>
+                <div className='bg-[#0E1317] p-11 rounded grid md:grid-cols-2 grid-cols-1 px-5 md:px-0 gap-11'>
                     <img src={collegeImage} alt="" />
 
                     <div>

@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Admission from "../pages/Admission/Admission";
 import AdmissionForm from "../pages/AdmissionForm/AdmissionForm";
 import CollegeDetails from "../pages/CollegeDetails/CollegeDetails";
+import Colleges from "../pages/Colleges/Colleges";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import MyColleges from "../pages/MyColleges/MyColleges";
@@ -41,9 +42,13 @@ const router = createBrowserRouter([
                 element: <MyColleges />
             },
             {
+                path: 'colleges',
+                element: <Colleges />
+            },
+            {
                 path: 'review/:id',
                 element: <Review />,
-                loader: ({params}) => fetch(`https://server-side-steel-theta.vercel.app/review/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-side-steel-theta.vercel.app/review/${params.id}`)
             },
             {
                 path: 'profile',

@@ -6,7 +6,7 @@ const MyCollege = ({ singleAdmitted }) => {
     
 
     return (
-        <div className='bg-base-100 p-3 rounded w-2/4 mx-auto mb-5'>
+        <div className='bg-base-100 p-3 rounded md:w-2/4 w-full mx-auto mb-5'>
             <h2 className='text-xl'>College Name: {admittedCollegeName}</h2>
             <p>Student Name: {studentName}</p>
             <p>Student Email: {studentEmail}</p>

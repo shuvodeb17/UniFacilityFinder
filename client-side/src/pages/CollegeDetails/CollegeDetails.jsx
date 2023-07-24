@@ -10,7 +10,7 @@ const CollegeDetails = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className='grid grid-cols-2 gap-5'>
+            <div className='grid md:grid-cols-2 grid-cols-1 px-5 md:px-0 gap-5'>
                 <div>
                     <img src={collegeImage} alt="" />
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Footer/Footer';
 import Testimonial from '../../Testimonial/Testimonial';
 import Banner from '../Banner/Banner';
 import CollegeCards from '../CollegeCards/CollegeCards';
@@ -12,6 +13,7 @@ const Home = () => {
             <CollegeCards />
             <ImageGallery />
             <Testimonial />
+            <Footer />
         </div>
     );
 };

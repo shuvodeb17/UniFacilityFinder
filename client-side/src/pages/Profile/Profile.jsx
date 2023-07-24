@@ -16,7 +16,7 @@ const Profile = () => {
             .then(data => {
                 setDetails(data[0])
             })
-    }, [user])
+    }, [user, details])
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -42,7 +42,7 @@ const Profile = () => {
     return (
         <section className='bg-base-300 h-screen'>
             <div className="container mx-auto">
-                <div className='w-2/6 bg-base-200 rounded text-center p-3 mx-auto'>
+                <div className='md:w-2/6 w-full bg-base-200 rounded text-center p-3 mx-auto'>
 
                     <button onClick={() => window.my_modal_1.showModal()} className='flex items-center justify-items-end bg-green-600 text-white p-2 rounded '>
                         <p className='mr-4'>Edit</p>
@@ -60,6 +60,7 @@ const Profile = () => {
                 <dialog id="my_modal_1" className="modal">
                     <div method="dialog" className="modal-box">
                         <h3 className="font-bold text-lg mb-4">Update Details</h3>
+                        <p>Press ESC key or click the button below to close</p>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div class="w-full px-3 mb-2">
                                 <label for="" class="text-xs font-semibold px-1">Student Name</label>

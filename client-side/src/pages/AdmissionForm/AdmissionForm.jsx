@@ -35,7 +35,7 @@ const AdmissionForm = () => {
             <div className="container mx-auto">
                 <h1 className='text-2xl font-bold text-center'>Admission Form </h1>
 
-                <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2 gap-5'>
+                <form onSubmit={handleSubmit(onSubmit)} className='grid md:grid-cols-2 grid-cols-1 px-5 md:px-0 gap-5'>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 ">
                             <label for="" class="text-xs font-semibold px-1">Name</label>
@@ -92,7 +92,7 @@ const AdmissionForm = () => {
                     </div>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
-                            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Admission</button>
+                            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold mt-5">Admission</button>
                             <Toaster />
                         </div>
                     </div>

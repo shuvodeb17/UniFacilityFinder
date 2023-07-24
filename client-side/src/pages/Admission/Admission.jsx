@@ -15,7 +15,7 @@ const Admission = () => {
         <section>
             <div className="container mx-auto">
                 <h1 className='text-center font-bold text-2xl'>Admission</h1>
-                <div className='grid grid-cols-2 gap-5 mt-3'>
+                <div className='grid md:grid-cols-2 grid-cols-1 px-5 md:px-0 gap-5 mt-3'>
                             {
                                 colleges.map(college => <SingleAdmission
                                     key={college._id}
