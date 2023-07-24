@@ -6,7 +6,7 @@ const MyColleges = () => {
     const { user } = useContext(AuthContext);
     const [admitted, setAdmitted] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3001/admission-all-data?studentEmail=${user?.email}`)
+        fetch(`https://server-side-steel-theta.vercel.app/admission-all-data?studentEmail=${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmitted(data))
     }, [])

@@ -8,7 +8,7 @@ const CollegeCards = () => {
     const [collegeDetails, setCollegeDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/college-details')
+        fetch('https://server-side-steel-theta.vercel.app/college-details')
             .then(res => res.json())
             .then(data => setCollegeDetails(data))
     }, [])
@@ -16,7 +16,7 @@ const CollegeCards = () => {
 
     return (
         <div className="container mx-auto">
-            <h1 className='py-11 text-center text-3xl font-bold text-[#140342]'>Our Most Popular Colleges</h1>
+            <h1 className='py-11 text-3xl font-semibold text-gray-800 md:text-4xl text-center mt-11'>Our Most Popular Colleges</h1>
             <div className='grid grid-cols-3 gap-5'>
 
                 {

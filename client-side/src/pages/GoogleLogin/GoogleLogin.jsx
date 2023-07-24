@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const GoogleLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const GoogleLogin = () => {
             .then(result => {
                 console.log(result.user)
                 const savedUser = { name: result?.user?.displayName, email: result?.user?.email, photo: result?.user?.photoURL }
-                fetch(`http://localhost:3001/all-users-post`, {
+                fetch(`https://server-side-steel-theta.vercel.app/all-users-post`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

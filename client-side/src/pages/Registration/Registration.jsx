@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import registrationImage from '../../assets/images/registration/registration.png'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { AuthContext } from '../../providers/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import registrationImage from '../../assets/images/registration/registration.png';
+import { AuthContext } from '../../providers/AuthProvider';
 import GoogleLogin from '../GoogleLogin/GoogleLogin';
 
 
@@ -26,7 +26,7 @@ const Registration = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const savedUser = { name: data?.name, email: data?.email, photo: data?.photoURL }
-                        fetch(`http://localhost:3001/all-users-post`, {
+                        fetch(`https://server-side-steel-theta.vercel.app/all-users-post`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

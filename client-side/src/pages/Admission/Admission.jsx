@@ -6,7 +6,7 @@ const Admission = () => {
     const [colleges, setColleges] = useState([]);
     console.log(colleges)
     useEffect(() => {
-        fetch('http://localhost:3001/college-details')
+        fetch('https://server-side-steel-theta.vercel.app/college-details')
             .then(res => res.json())
             .then(data => setColleges(data))
     }, [])

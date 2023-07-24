@@ -1,7 +1,7 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
 
 
 
@@ -16,7 +16,7 @@ const Review = () => {
         const updateReview = { admittedCollegeName, photo, ratings, studentName, studentEmail, reviews: data.reviews }
         console.log(updateReview)
 
-        fetch(`http://localhost:3001/reviews-data`, {
+        fetch(`https://server-side-steel-theta.vercel.app/reviews-data`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

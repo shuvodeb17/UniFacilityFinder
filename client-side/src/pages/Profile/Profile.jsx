@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
-import { FaPen } from 'react-icons/fa';
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from 'react-hot-toast';
+import { FaPen } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 
@@ -12,7 +11,7 @@ const Profile = () => {
     const [details, setDetails] = useState({});
     const { user } = useContext(AuthContext)
     useEffect(() => {
-        fetch(`http://localhost:3001/admission-all-data?studentEmail=${user?.email}`)
+        fetch(`https://server-side-steel-theta.vercel.app/admission-all-data?studentEmail=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setDetails(data[0])
@@ -23,7 +22,7 @@ const Profile = () => {
     const onSubmit = data => {
         console.log(data.studentName)
         const updateData = { studentName: data?.studentName, studentEmail: data?.studentEmail, admittedCollegeName: data?.admittedCollegeName, address: data?.address }
-        fetch(`http://localhost:3001/profile-details-update/${details?._id}`, {
+        fetch(`https://server-side-steel-theta.vercel.app/profile-details-update/${details?._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

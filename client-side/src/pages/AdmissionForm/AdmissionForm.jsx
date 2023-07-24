@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-import { useForm } from "react-hook-form"
-import toast, { Toaster } from 'react-hot-toast';
 
 
 const AdmissionForm = () => {
@@ -14,7 +14,7 @@ const AdmissionForm = () => {
     const onSubmit = data => {
 
         const insertData = { studentName: data.studentName, address: data.address, studentEmail: data.studentEmail, studentPhoneNumber: data.studentPhoneNumber, admittedCollegeName: data.admittedCollegeName, dateOfBirth: data.dateOfBirth, feedback: '', reviews: '', photo: user?.photoURL, collegeImage: collegeImage, events, research,history,sports,ratings,numberOfResearch,facilities }
-        fetch('http://localhost:3001/admission-data', {
+        fetch('https://server-side-steel-theta.vercel.app/admission-data', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

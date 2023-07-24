@@ -10,3 +10,13 @@
   opacity: 0.5;
   height: 89vh;
 }
+
+.banner-main {
+  height: 600px;
+}
+.banner-clip{
+  clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)
+}
+.banner-image{
+  background-image: url('../../../assets/images/banner/bannerOne.jpg');
+}

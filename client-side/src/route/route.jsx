@@ -25,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: 'college-details/:id',
                 element: <PrivateRoute><CollegeDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3001/college-detail/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-side-steel-theta.vercel.app/college-detail/${params.id}`)
             },
             {
                 path: 'admission',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path: 'admission-form/:id',
                 element: <AdmissionForm />,
-                loader: ({ params }) => fetch(`http://localhost:3001/college-detail/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-side-steel-theta.vercel.app/college-detail/${params.id}`)
             },
             {
                 path: 'my-college',
@@ -43,12 +43,12 @@ const router = createBrowserRouter([
             {
                 path: 'review/:id',
                 element: <Review />,
-                loader: ({params}) => fetch(`http://localhost:3001/review/${params.id}`)
+                loader: ({params}) => fetch(`https://server-side-steel-theta.vercel.app/review/${params.id}`)
             },
             {
                 path: 'profile',
                 element: <Profile />,
-                loader: ({ params }) => fetch(`http://localhost:3001/admission-all-data?studentEmail=${params._id}`)
+                loader: ({ params }) => fetch(`https://server-side-steel-theta.vercel.app/admission-all-data?studentEmail=${params._id}`)
 
             },
             {

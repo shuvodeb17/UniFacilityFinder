@@ -5,17 +5,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 // import required modules
-import { Navigation } from 'swiper/modules';
-import Rating from 'react-rating';
 import { BiSolidStar } from 'react-icons/bi';
 import { BsStar } from 'react-icons/bs';
+import Rating from 'react-rating';
+import { Navigation } from 'swiper/modules';
 
 
 const Testimonial = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/all-reviews')
+        fetch('https://server-side-shuvodeb127-gmailcom.vercel.app/all-reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
