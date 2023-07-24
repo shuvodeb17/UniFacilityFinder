@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const GoogleLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const googleSignInHandler = () => {
         const notify = (message, type) => {
@@ -23,6 +27,7 @@ const GoogleLogin = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
+                        navigate(from, { replace: true });
                     })
                 if (result?.user) {
                     notify('Successful', 'success');
