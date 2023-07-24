@@ -30,6 +30,14 @@ const ImageGallery = () => {
                         clickable: true,
                     }}
                     breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        576: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
                         640: {
                             slidesPerView: 2,
                             spaceBetween: 20,

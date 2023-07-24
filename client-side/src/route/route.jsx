@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'admission-form/:id',
-                element: <AdmissionForm />,
+                element: <PrivateRoute><AdmissionForm /></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://server-side-steel-theta.vercel.app/college-detail/${params.id}`)
             },
             {
