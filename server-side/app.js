@@ -32,6 +32,7 @@ async function run() {
         const usersCollection = client.db('UniFacilityFinder').collection('users');
         const collegeCollection = client.db('UniFacilityFinder').collection('collegeDetails');
         const admissionCollection = client.db('UniFacilityFinder').collection('admission');
+        const reviewsCollection = client.db('UniFacilityFinder').collection('reviews');
 
 
         app.post('/all-users-post', async (req, res) => {
@@ -102,6 +103,17 @@ async function run() {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
             const result = await admissionCollection.findOne(query)
+            res.send(result)
+        })
+
+        app.post('/reviews-data', async (req, res) => {
+            const data = req.body;
+            const result = await reviewsCollection.insertOne(data)
+            res.send(result)
+        })
+
+        app.get('/all-reviews', async (req, res) => {
+            const result = await reviewsCollection.find({}).toArray()
             res.send(result)
         })
 
