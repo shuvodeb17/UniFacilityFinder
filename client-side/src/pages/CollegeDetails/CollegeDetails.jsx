@@ -30,7 +30,7 @@ const CollegeDetails = () => {
                             emptySymbol={<BsStar className='text-[#FF9801]' />}
                             readonly
                             placeholderSymbol={<BiSolidStar className='text-[#FF9801]' />}
-                            fullSymbol={<BiSolidStar className='text-[#FF9801]' />}
+                            fullSymbol={<BiSolidStar className='text-[#FF9801]' /> }
                         />
                     </div>
                 </div>

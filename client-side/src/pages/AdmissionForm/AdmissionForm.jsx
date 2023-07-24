@@ -9,7 +9,6 @@ const AdmissionForm = () => {
     const { user } = useContext(AuthContext);
     const collegeData = useLoaderData()
     const { collegeName, collegeImage, events, research, history, sports, ratings, numberOfResearch, facilities } = collegeData;
-    console.log(collegeData)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {

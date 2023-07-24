@@ -17,7 +17,7 @@ const Profile = () => {
             .then(data => {
                 setDetails(data[0])
             })
-    }, [])
+    }, [user])
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {

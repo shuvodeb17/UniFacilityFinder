@@ -1,16 +1,35 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
 const Review = () => {
     const reviewsDetails = useLoaderData()
-    const { admittedCollegeName, studentName, studentEmail, photo, collegeImage, events, facilities, sports, numberOfResearch, ratings, history } = reviewsDetails;
+    const { _id, admittedCollegeName, studentName, studentEmail, photo, collegeImage, events, facilities, sports, numberOfResearch, ratings, history } = reviewsDetails;
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+
+        const updateReview = { admittedCollegeName, photo, ratings, studentName, studentEmail, reviews: data.reviews }
+        console.log(updateReview)
+
+        fetch(`http://localhost:3001/reviews-data`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data?.insertedId) {
+                    toast.success('Reviews added successfully')
+                }
+            })
     }
 
     return (
@@ -31,8 +50,9 @@ const Review = () => {
 
                         <form onSubmit={handleSubmit(onSubmit)} className='mt-5'>
                             <p>Review</p>
-                            <input {...register("reviews")} type="text" className="p-3 rounded text-black outline-none w-full" />
+                            <input {...register("reviews")} type="text" className="p-3 rounded text-black outline-none w-full" required />
                             <button className="mt-5 bg-green-500 px-5 py-2 rounded">Send</button>
+                            <Toaster />
                         </form>
                     </div>
                 </div>
