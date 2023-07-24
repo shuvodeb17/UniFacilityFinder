@@ -22,7 +22,7 @@ const ImageGallery = () => {
     return (
         <div className='py-11'>
             <div className="container mx-auto">
-                <h2 className='text-3xl font-bold text-center mb-5'>graduated Students</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 md:text-3xl mt-11 text-center"><span className="text-indigo-600">Graduated </span><span className="">Students</span></h2>
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={20}

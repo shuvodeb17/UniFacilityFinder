@@ -16,7 +16,9 @@ const CollegeCards = () => {
 
     return (
         <div className="container mx-auto px-5 md:px-0">
-            <h1 className='py-11 text-3xl font-semibold text-gray-800 md:text-4xl text-center mt-11'>Our Most Popular Colleges</h1>
+
+            <h2 className="mt-11 py-5 pt-11 text-center text-2xl font-semibold text-gray-800 md:text-3xl">Our Most <span className="text-indigo-600">Popular Colleges</span></h2>
+
             <div className='grid md:grid-cols-3 grid-cols-1 gap-5'>
 
                 {
